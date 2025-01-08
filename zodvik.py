@@ -5,7 +5,7 @@ import os
 import time
 import json
 import shutil
-from telebot import types
+ import types
 from threading import Timer, Thread
 from requests.exceptions import ReadTimeout, ConnectionError
 import os
