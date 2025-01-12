@@ -23,7 +23,7 @@ redeem_codes_collection = db['redeem_codes']
 attack_logs_collection = db['user_attack_logs']
 
 # Bot Configuration
-TELEGRAM_BOT_TOKEN = '7757010456:AAECe5GcIFXjLrYhZDMRVXZv0jebPxhORRI'
+TELEGRAM_BOT_TOKEN = '7757010456:AAFAMCU6Uf6H1yg6NaRFZjcsMIHJWa4PgqY'
 ADMIN_USER_ID = 6353114118
 ADMIN_USER_ID = 6353114118 
 COOLDOWN_PERIOD = timedelta(minutes=1) 
