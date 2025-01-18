@@ -14,11 +14,7 @@ from datetime import datetime, timedelta, timezone
 # Database Configuration
 from pymongo import MongoClient
 
-client = MongoClient(
-    "mongodb+srv://Bishal:Bishal@bishal.dffybpx.mongodb.net/?retryWrites=true&w=majority&appName=Bishal",
-    serverSelectionTimeoutMS=50000,  # Increase the timeout (milliseconds)
-    connectTimeoutMS=50000
-)
+MONGO_URI = 'mongodb+srv://Bishal:Bishal@bishal.dffybpx.mongodb.net/?retryWrites=true&w=majority&appName=Bishal'
 
 client = MongoClient(MONGO_URI)
 db = client['TEST']
