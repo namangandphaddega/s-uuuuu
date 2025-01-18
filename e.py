@@ -13,7 +13,7 @@ from datetime import datetime, timedelta, timezone
 from pymongo.server_api import ServerApi
 
 # Database Configuration
-MONGO_URI = 'mongodb+srv://Magic:Spike@cluster0.fa68l.mongodb.net/TEST?retryWrites=true&w=majority&appName=Cluster0'
+MONGO_URI = 'mongodb+srv://rishi:ipxkingyt@rishiv.ncljp.mongodb.net/?retryWrites=true&w=majority&appName=rishiv'
 client = MongoClient(MONGO_URI)
 db = client['TEST']
 users_collection = db['users']
