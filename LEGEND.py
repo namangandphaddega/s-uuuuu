@@ -12,7 +12,14 @@ from pymongo import MongoClient
 from datetime import datetime, timedelta, timezone
 
 # Database Configuration
-MONGO_URI = 'mongodb+srv://Bishal:Bishal@bishal.dffybpx.mongodb.net/?retryWrites=true&w=majority&appName=Bishal'
+from pymongo import MongoClient
+
+client = MongoClient(
+    "mongodb+srv://Bishal:Bishal@bishal.dffybpx.mongodb.net/?retryWrites=true&w=majority&appName=Bishal",
+    serverSelectionTimeoutMS=50000,  # Increase the timeout (milliseconds)
+    connectTimeoutMS=50000
+)
+
 client = MongoClient(MONGO_URI)
 db = client['TEST']
 users_collection = db['users']
