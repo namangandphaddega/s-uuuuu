@@ -10,11 +10,23 @@ from telegram import Update
 from telegram.ext import Application, CommandHandler, CallbackContext, filters, MessageHandler
 from pymongo import MongoClient
 from datetime import datetime, timedelta, timezone
+from pymongo.server_api import ServerApi
 
-# Database Configuration
-from pymongo import MongoClient
 
-MONGO_URI = 'mongodb+srv://Bishal:Bishal@bishal.dffybpx.mongodb.net/?retryWrites=true&w=majority&appName=Bishal'
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
+
+uri = "mongodb+srv://zodvikxnaman:<db_password>@cluster0.jhvfs.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+
+# Create a new client and connect to the server
+client = MongoClient(uri, server_api=ServerApi('1'))
+
+# Send a ping to confirm a successful connection
+try:
+    client.admin.command('ping')
+    print("Pinged your deployment. You successfully connected to MongoDB!")
+except Exception as e:
+    print(e)
 
 client = MongoClient(MONGO_URI)
 db = client['TEST']
