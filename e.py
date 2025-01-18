@@ -11,14 +11,7 @@ from telegram.ext import Application, CommandHandler, CallbackContext, filters, 
 from pymongo import MongoClient
 from datetime import datetime, timedelta, timezone
 
-# Database Configuration
-MONGO_URI = 'mongodb+srv://Magic:Spike@cluster0.fa68l.mongodb.net/TEST?retryWrites=true&w=majority&appName=Cluster0'
-client = MongoClient(MONGO_URI)
-db = client['TEST']
-users_collection = db['users']
-settings_collection = db['settings-V9']  # A new collection to store global settings
-redeem_codes_collection = db['redeem_codes']
-attack_logs_collection = db['user_attack_logs']
+
 
 # Bot Configuration
 TELEGRAM_BOT_TOKEN = '7757010456:AAHudx8y2i_WIY_583r1TsVKH1JQNbZMOr0'
