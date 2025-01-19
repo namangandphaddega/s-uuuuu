@@ -584,10 +584,7 @@ async def attack(update: Update, context: CallbackContext):
     user_id = update.effective_user.id  # Get the ID of the user
     current_time = datetime.now(timezone.utc)
 
-    # Check if the user is allowed to use the bot
-    if not await is_user_allowed(user_id):
-        await context.bot.send_message(chat_id=chat_id, text="*❌ You are not authorized to use this bot!*", parse_mode='Markdown')
-        return
+  
 
     # Check for cooldown
     last_attack_time = cooldown_dict.get(user_id)
@@ -988,23 +985,7 @@ async def list_codes(update: Update, context: CallbackContext):
 
     await context.bot.send_message(chat_id=update.effective_chat.id, text=message, parse_mode='Markdown')
 
-# Function to check if a user is allowed
-async def is_user_allowed(user_id):
-    user = users_collection.find_one({"user_id": user_id})
-    if user:
-        expiry_date = user['expiry_date']
-        if expiry_date:
-            if expiry_date.tzinfo is None:
-                expiry_date = expiry_date.replace(tzinfo=timezone.utc)  # Ensure timezone awareness
-            if expiry_date > datetime.now(timezone.utc):
-                return True
-    return False
 
-async def cleanup(update: Update, context: CallbackContext):
-    user_id = update.effective_user.id
-    if user_id != ADMIN_USER_ID:
-        await context.bot.send_message(chat_id=update.effective_chat.id, text="*❌ You are not authorized to perform this action!*", parse_mode='Markdown')
-        return
 
     # Get the current UTC time
     current_time = datetime.now(timezone.utc)
